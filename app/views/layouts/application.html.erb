@@ -2,16 +2,16 @@
 <html>
 <head>
   <title>Receba</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body class="receba-home">
-
     <main class="bs-masthead" id="content" role="main">
       <div class="container">
         <h1>Receba.la</h1>
-        <p class="lead">receba pagametos sem dor de cabeça</p>
+        <p class="lead">receba pagamentos sem dor de cabeça</p>
 
         <%= yield %>
 
