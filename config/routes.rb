@@ -1,6 +1,15 @@
 Receba::Application.routes.draw do
-  get "home/index"
+  devise_for :users
   root to: "home#index"
+
+  # Institutional/Static pages
+  controller :home do
+    get 'sobre',       to: :about,    as: 'about'
+    get 'ajuda',        to: :help,     as: 'help'
+    get 'termos',    to: :legal,    as: 'legal'
+    get 'privacidade',      to: :privacy,      as: 'privacy'
+    get 'seguranca',     to: :security,  as: 'security'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
