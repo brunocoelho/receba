@@ -4,5 +4,4 @@
 /log/*.log
 /tmp
 .env
-.rvmrc*
 config/database.yml
