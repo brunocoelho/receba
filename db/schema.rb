@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105220221) do
+ActiveRecord::Schema.define(version: 20131106021018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transfers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "receiver_id"
+    t.decimal  "amount",         precision: 8, scale: 2
+    t.string   "email"
+    t.string   "name"
+    t.boolean  "success"
+    t.integer  "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,29 @@
+<%= form_for(@transfer, role: "form") do |f| %>
+  <% if @transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transfer.errors.count, "error") %> impossibilitaram a transferência:</h2>
+      <ul>
+      <% @transfer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit "Enviar", class: "btn btn-default" %>
+<% end %>

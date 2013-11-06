@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  receiver_id: 1
+  amount: 9.99
+  email: MyString
+  name: MyString
+  split_option: 1
+
+two:
+  user_id: 1
+  receiver_id: 1
+  amount: 9.99
+  email: MyString
+  name: MyString
+  split_option: 1
