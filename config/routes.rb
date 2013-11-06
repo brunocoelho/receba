@@ -2,6 +2,7 @@ Receba::Application.routes.draw do
   resources :transfers
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  get '/p/:id' => 'users#show', as: :user_profile
 
   root to: "home#index"
 

@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  after_create :set_username
+
+  def to_param
+    self.username
+  end
+
   class << self
     def find_for_facebook_oauth(auth, signed_in_resource=nil)
       user = User.where(provider: auth.provider, uid: auth.uid).first
@@ -30,5 +36,11 @@ class User < ActiveRecord::Base
       end
     end
 
+  end
+
+  private
+
+  def set_username
+    self.username = self.name.gsub(" ", "-")
   end
 end
