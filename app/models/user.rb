@@ -30,17 +30,17 @@ class User < ActiveRecord::Base
 
     def new_with_session(params, session)
       super.tap do |user|
-        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-          user.email = data["email"] if user.email.blank?
+        if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+          user.email = data['email'] if user.email.blank?
         end
       end
     end
-
   end
 
-  private
+private
 
   def set_username
-    self.username = self.name.gsub(" ", "-")
+    self.username = self.name.gsub(' ', '-').downcase
+    self.save
   end
 end
