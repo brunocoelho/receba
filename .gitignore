@@ -5,3 +5,4 @@
 /tmp
 .env
 config/database.yml
+.ruby-version
