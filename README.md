@@ -12,9 +12,11 @@ Receba pagamentos online sem dor de cabeça
 
 ## Instalação
 
-`$ bundle install` - Manages all dependencies on third-party libraries
+`$ bundle install` - Instala e gerencia as dependência do projeto
 
 ## Uso
+`$ foreman start` - Inicia o servidor na porta 5000
+`$ foreman run rails console` - Inicia o console
 
 ## Copyright
 
