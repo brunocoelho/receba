@@ -1,3 +1,17 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.facebook-button {
+  height: 32px;
+  width: 182px;
+  bottom: 110px;
+  left: 115px;
+  background-image: image-url('buttons/sign-in-with-facebook.png');
+  background-position: top center;
+  position: absolute;
+  text-indent: -9999px;
+  &:hover,
+  &:focus {
+    background-position: center center;
+  }
+  &:active {
+    background-position: bottom center;
+  }
+}
