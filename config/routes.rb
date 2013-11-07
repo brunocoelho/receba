@@ -1,18 +1,18 @@
 Receba::Application.routes.draw do
   resources :transfers
 
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get '/p/:id' => 'users#show', as: :user_profile
 
-  root to: "home#index"
+  root to: 'home#index'
 
   # Institutional/Static pages
   controller :home do
     get 'sobre',       to: :about,    as: 'about'
-    get 'ajuda',        to: :help,     as: 'help'
-    get 'termos',    to: :legal,    as: 'legal'
-    get 'privacidade',      to: :privacy,      as: 'privacy'
-    get 'seguranca',     to: :security,  as: 'security'
+    get 'ajuda',       to: :help,     as: 'help'
+    get 'termos',      to: :legal,    as: 'legal'
+    get 'privacidade', to: :privacy,  as: 'privacy'
+    get 'seguranca',   to: :security, as: 'security'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
