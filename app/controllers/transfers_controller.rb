@@ -1,3 +1,5 @@
+# require "pagarme"
+
 class TransfersController < ApplicationController
   before_action :set_transfer, only: [:show, :edit, :update, :destroy]
 
@@ -24,6 +26,10 @@ class TransfersController < ApplicationController
   # POST /transfers
   # POST /transfers.json
   def create
+    puts transfer_params.inspect
+
+    # pagarme_transaction = PagarMe::Transaction.new(tr)
+
     @transfer = Transfer.new(transfer_params)
 
     respond_to do |format|
@@ -69,6 +75,6 @@ class TransfersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transfer_params
-      params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name)
+      params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :card_hash)
     end
 end

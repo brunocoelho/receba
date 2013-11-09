@@ -1,3 +1,5 @@
+<%= render "pagarme_script_tag" %>
+
 <%= form_for(@transfer, role: "form") do |f| %>
   <% if @transfer.errors.any? %>
     <div id="error_explanation">
@@ -23,6 +25,36 @@
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_number, "Número do cartão" %>
+    <br/>
+    <%= text_field_tag :card_number, nil, { id: "card_number" } %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_holder_name, "Nome (como escrito no cartão)" %>
+    <br/>
+    <%= text_field_tag :card_holder_name, nil, { id: "card_holder_name" } %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_expiracy_month, "Mês de expiração" %>
+    <br/>
+    <%= text_field_tag :card_expiracy_month, nil, { id: "card_expiracy_month" } %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_expiracy_year, "Ano de expiração" %>
+    <br/>
+    <%= text_field_tag :card_expiracy_year, nil, { id: "card_expiracy_year" } %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_cvv, "Código de segurança" %>
+    <br />
+    <%= text_field_tag :card_cvv, nil, { id: "card_cvv" } %>
   </div>
 
   <%= f.submit "Enviar", class: "btn btn-default" %>
