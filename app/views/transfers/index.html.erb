@@ -1,13 +1,13 @@
-<h1>Listing transfers</h1>
+<h3>Listing transfers</h3>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Receiver</th>
-      <th>Amount</th>
+      <th>Usuário</th>
+      <th>Quem recebeu</th>
+      <th>Valor</th>
       <th>Email</th>
-      <th>Name</th>
+      <th>Nome</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,9 +22,8 @@
         <td><%= transfer.amount %></td>
         <td><%= transfer.email %></td>
         <td><%= transfer.name %></td>
-        <td><%= link_to 'Show', transfer %></td>
-        <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
-        <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', transfer %></td>
+        <td><%= link_to 'Cancelar', transfer, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Transfer', new_transfer_path %>
+<%= link_to 'Novo pagamento', new_transfer_path %>

@@ -4,7 +4,6 @@ Receba::Application.routes.draw do
   # Institutional/Static pages
   controller :home do
     get 'sobre',       to: :about,    as: 'about'
-    get 'ajuda',       to: :help,     as: 'help'
     get 'termos',      to: :legal,    as: 'legal'
     get 'privacidade', to: :privacy,  as: 'privacy'
     get 'seguranca',   to: :security, as: 'security'
