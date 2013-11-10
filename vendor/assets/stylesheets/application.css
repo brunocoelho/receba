@@ -1096,3 +1096,26 @@ h1[id] {
   margin-top: 15px;
   margin-bottom: 5px;
 }
+
+/* button */
+
+.btn_blue:hover {
+  background: #0e7ad8;
+}
+
+.btn_blue {
+color: #fff;
+background-color: #0070d1;
+border: 1px solid #0060b9;
+}
+
+.btn_facebook {
+display: block;
+font-size: 16px;
+font-weight: 400;
+height: 47px;
+margin: 20px auto 10px;
+padding: 0 30px 0 65px;
+position: relative;
+width: 290px;
+}

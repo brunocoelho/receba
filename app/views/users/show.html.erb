@@ -1,1 +1,13 @@
-<%= link_to @user.name, user_profile_url(@user) %>
+<div class="row col-sm-6 col-md-8 user_card">
+  <%= image_tag "rodrigo.jpeg", class: "img-circle" %>
+  <h4 class="lead"><%= link_to @user.name, user_path(@user) %></h4>
+
+  <p>@<%= @user.username %></p>
+  <p><%= @user.location %></p>
+
+  <button type="button" class="btn btn-primary">Enviar dinheiro</button>
+
+  <% if current_user == @user %>
+    <%= link_to "Editar perfil", edit_user_path(@user) %>
+  <% end %>
+</div>
