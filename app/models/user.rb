@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
     self.username
   end
 
+  %w(square small normal large).each do |method_name|
+    define_method("#{method_name}_avatar_url") do
+      "https://graph.facebook.com/#{self.uid}/picture?type=#{method_name}"
+    end
+  end
+
   class << self
     def find_for_facebook_oauth(auth, signed_in_resource=nil)
       user = User.where(provider: auth.provider, uid: auth.uid).first
