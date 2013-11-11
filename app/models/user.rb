@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
       user = User.where(provider: auth.provider, uid: auth.uid).first
       unless user
         user = User.create(name: auth.extra.raw_info.name,
-                            provider: auth.provider,
-                            uid: auth.uid,
-                            email: auth.info.email,
-                            password: Devise.friendly_token[0,20])
+                           provider: auth.provider,
+                           uid: auth.uid,
+                           email: auth.info.email,
+                           password: Devise.friendly_token[0,20])
       end
 
       user
@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
   end
 
 private
-
   def set_username
     self.username = self.name.gsub(' ', '-').downcase
     self.save
