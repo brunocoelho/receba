@@ -1,7 +1,7 @@
 # require "pagarme"
 
 class TransfersController < ApplicationController
-  before_action :set_transfer, only: [:show, :edit, :update, :destroy]
+  before_action :find_transfer, only: [:show, :edit, :update]
 
   # GET /transfers
   # GET /transfers.json
@@ -26,8 +26,6 @@ class TransfersController < ApplicationController
   # POST /transfers
   # POST /transfers.json
   def create
-    puts transfer_params.inspect
-
     # pagarme_transaction = PagarMe::Transaction.new(tr)
 
     @transfer = Transfer.new(transfer_params)
@@ -35,10 +33,8 @@ class TransfersController < ApplicationController
     respond_to do |format|
       if @transfer.save
         format.html { redirect_to @transfer, notice: 'Transfer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @transfer }
       else
         format.html { render action: 'new' }
-        format.json { render json: @transfer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,32 +45,20 @@ class TransfersController < ApplicationController
     respond_to do |format|
       if @transfer.update(transfer_params)
         format.html { redirect_to @transfer, notice: 'Transfer was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @transfer.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /transfers/1
-  # DELETE /transfers/1.json
-  def destroy
-    @transfer.destroy
-    respond_to do |format|
-      format.html { redirect_to transfers_url }
-      format.json { head :no_content }
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def find_transfer
+    @transfer = Transfer.find(params[:id])
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transfer
-      @transfer = Transfer.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def transfer_params
-      params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :card_hash)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def transfer_params
+    params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :card_hash)
+  end
 end
