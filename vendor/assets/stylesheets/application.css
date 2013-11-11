@@ -12,39 +12,6 @@
  *= require_tree .
  */
 
-/*
- * Bootstrap Documentation
- * Special styles for presenting Bootstrap's documentation and code examples.
- *
- * Table of contents:
- *
- * Scaffolding
- * Main navigation
- * Footer
- * Social buttons
- * Homepage
- * Page headers
- * Old docs callout
- * Ads
- * Side navigation
- * Docs sections
- * Callouts
- * Grid styles
- * Examples
- * Code snippets (highlight)
- * Responsive tests
- * Glyphicons
- * Customizer
- * Miscellaneous
- */
-
-
-/*
- * Scaffolding
- *
- * Update the basics of our documents to prep for docs content.
- */
-
 body {
   position: relative; /* For scrollyspy */
   padding-top: 50px; /* Account for fixed navbar */
@@ -62,6 +29,7 @@ body {
   background-color: #fff;
   border-color: #e5e5e5;
 }
+
 .btn-outline:hover,
 .btn-outline:focus,
 .btn-outline:active {
@@ -251,14 +219,17 @@ body {
   list-style: none;
   text-align: center;
 }
+
 .bs-masthead-links li {
   display: inline;
 }
+
 .bs-masthead-links li + li {
   margin-left: 20px;
 }
+
 .bs-masthead-links a {
-  color: #fff;
+  color: #222;
 }
 
 @media screen and (min-width: 768px) {

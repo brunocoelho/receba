@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Receba</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "https://pagar.me/assets/pagarme.js" %>
+  <meta name="google-site-verification" content="xvBpARCula5nfDy7E7PwA4wwWVkOsSFfugka6Y34O1E" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+<body class="receba-home">
+    <div class="bs-header" id="content">
+      <div class="container">
+        <%= render 'devise/menu/login_items' %>
+
+        <h1>Receba.la</h1>
+        <p class="lead">receba pagamentos sem dor de cabeça</p>
+
+        <ul class="nav nav-pills navigation">
+          <li class="active"><%= link_to "Início", dashboard_index_path %></li>
+          <li><%= link_to "Realizados", dashboard_performed_path %></li>
+          <li><%= link_to "Recebidos", dashboard_received_path %></li>
+        </ul>
+
+        <%= yield %>
+
+      </div>
+    </div>
+
+    <%= render "layouts/footer" %>
+    <%= render "layouts/google_analytics" %>
+  </body>
+
+</html>

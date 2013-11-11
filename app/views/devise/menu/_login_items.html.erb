@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   <ul class="menu">
+    <li><%= link_to('Dashboard', dashboard_index_path) %></li>
   	<li><%= link_to('Perfil', user_path(current_user)) %></li>
     <li><%= link_to('Sair', destroy_user_session_path, method: :delete) %></li>
   </ul>

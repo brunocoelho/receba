@@ -1,6 +1,10 @@
 translated_paths = { edit: 'editar' }
 
 Receba::Application.routes.draw do
+  get "dashboard/index"
+  get "dashboard/performed"
+  get "dashboard/received"
+
   # Institutional/Static pages
   controller :home do
     get 'sobre',       to: :about,    as: 'about'

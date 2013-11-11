@@ -61,10 +61,7 @@ class TransfersController < ApplicationController
   # DELETE /transfers/1.json
   def destroy
     @transfer.destroy
-    respond_to do |format|
-      format.html { redirect_to transfers_url }
-      format.json { head :no_content }
-    end
+    redirect_to transfers_url
   end
 
   private
