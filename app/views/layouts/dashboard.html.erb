@@ -10,12 +10,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="receba-home">
+    <%= render "layouts/navbar" %>
+
     <div class="bs-header" id="content">
       <div class="container">
-        <%= render 'devise/menu/login_items' %>
-
-        <h1>Receba.la</h1>
-        <p class="lead">receba pagamentos sem dor de cabeça</p>
 
         <%= yield %>
 

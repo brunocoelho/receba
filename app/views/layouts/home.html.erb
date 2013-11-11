@@ -8,6 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="receba-home">
+    <% if user_signed_in? %>
+      <%= render "layouts/navbar" %>
+    <% end %>
+
     <main class="bs-masthead" id="content" role="main">
       <div class="container">
         <h1>Receba.la</h1>
