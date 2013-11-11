@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
 
 <p>
   <strong>User:</strong>
@@ -25,5 +27,4 @@
   <%= @transfer.name %>
 </p>
 
-<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
 <%= link_to 'Back', transfers_path %>

@@ -5,9 +5,29 @@
   <p>@<%= @user.username %></p>
   <p><%= @user.location %></p>
 
-  <button type="button" class="btn btn-primary">Enviar dinheiro</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTransferInfo">Enviar dinheiro</button>
 
   <% if current_user == @user %>
     <%= link_to "Editar perfil", edit_user_path(@user) %>
   <% end %>
+
+  <%= render "transfers/pagarme_script_tag" %>
+
+  <%= form_for(@transfer, role: "form") do |f| %>
+    <% if @transfer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@transfer.errors.count, "error") %> impossibilitaram a transferência:</h2>
+        <ul>
+        <% @transfer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <%= render "transfers/modal_transfer_info", f: f, user: @user, transfer: @transfer %>
+  <%= render "transfers/modal_card_info", f: f, user: @user, transfer: @transfer %>
+
+  <% end %>
+
 </div>

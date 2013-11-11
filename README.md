@@ -4,7 +4,7 @@ Receba pagamentos online sem dor de cabeça
 
 ## Tech Specs
 
-| Tool                                 | Versão           |
+| Ferramenta                           | Versão           |
 | ------------------------------------ |:----------------:|
 | Rails                                | 4.0.1            |
 | Ruby MRI                             | >= 2.0.0p0       |
@@ -15,7 +15,9 @@ Receba pagamentos online sem dor de cabeça
 `$ bundle install` - Instala e gerencia as dependência do projeto
 
 ## Uso
+
 `$ foreman start` - Inicia o servidor na porta 5000
+
 `$ foreman run rails console` - Inicia o console
 
 ## Copyright
