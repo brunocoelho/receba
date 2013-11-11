@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>Pagamentos recebidos</p>
+  </div>
+  <%= render 'table', transfers: @transfers_received %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>Pagamentos realizados</p>
+  </div>
+  <%= render 'table', transfers: @transfers_performed %>
+</div>

@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Valor</th>
+      <th>Email</th>
+      <th>Nome</th>
+      <th>Para</th>
+      <th>Sucesso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% transfers.each do |transfer| %>
+      <tr>
+        <td><%= transfer.id %></td>
+        <td><%= number_to_currency transfer.amount %></td>
+        <td><%= transfer.email %></td>
+        <td><%= transfer.name %></td>
+        <td><%= transfer.receiver_id %></td>
+        <td><%= transfer.success? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
