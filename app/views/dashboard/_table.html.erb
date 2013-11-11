@@ -16,7 +16,7 @@
         <td><%= number_to_currency transfer.amount %></td>
         <td><%= transfer.email %></td>
         <td><%= transfer.name %></td>
-        <td><%= transfer.receiver_id %></td>
+        <td><%= render_receiver_name transfer %></td>
         <td><%= transfer.success? %></td>
       </tr>
     <% end %>

@@ -23,12 +23,15 @@ class User < ActiveRecord::Base
   class << self
     def find_for_facebook_oauth(auth, signed_in_resource=nil)
       user = User.where(provider: auth.provider, uid: auth.uid).first
+
+
+      puts "tearjerker"
+      puts auth.inspect
+
       unless user
-        user = User.create(name: auth.extra.raw_info.name,
-                           provider: auth.provider,
-                           uid: auth.uid,
-                           email: auth.info.email,
-                           password: Devise.friendly_token[0,20])
+        user = User.create(name: auth.extra.raw_info.name, provider: auth.provider,
+                           uid: auth.uid, email: auth.info.email, username: auth.info.nickname,
+                           location: auth.info.location, password: Devise.friendly_token[0,20])
       end
 
       user
@@ -45,7 +48,9 @@ class User < ActiveRecord::Base
 
 private
   def set_username
-    self.username = self.name.gsub(' ', '-').downcase
-    self.save
+    if self.username.blank?
+      self.username = self.name.gsub(' ', '-').downcase
+      self.save
+    end
   end
 end

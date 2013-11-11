@@ -18,6 +18,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  # Gem to improve error displaying in Rails
+  # *cannot* be used in production
+  gem 'better_errors', '~> 1.0.1'
+end
+
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
 end
