@@ -1,13 +1,17 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <p>Pagamentos recebidos</p>
+<% if @transfers_received.present? || @transfers_performed.present? %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>Pagamentos recebidos</p>
+    </div>
+    <%= render 'table', transfers: @transfers_received %>
   </div>
-  <%= render 'table', transfers: @transfers_received %>
-</div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <p>Pagamentos realizados</p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>Pagamentos realizados</p>
+    </div>
+    <%= render 'table', transfers: @transfers_performed %>
   </div>
-  <%= render 'table', transfers: @transfers_performed %>
-</div>
+<% else %>
+  <h3 class="lead">Você ainda não realizou nem recebeu pagamentos</h3>
+<% end %>
