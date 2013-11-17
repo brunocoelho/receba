@@ -20,6 +20,11 @@ Receba pagamentos online sem dor de cabeça
 
 `$ foreman run rails console` - Inicia o console
 
+## Deploy
+
+O Receba usa o [Capistrano](http://www.capistranorb.com) para realização de _deploy_
+
+
 ## Copyright
 
 (c) 2013 Receba.la

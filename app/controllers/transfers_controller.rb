@@ -19,35 +19,29 @@ class TransfersController < ApplicationController
     @transfer = Transfer.new
   end
 
-  # GET /transfers/1/edit
-  def edit
-  end
-
   # POST /transfers
   # POST /transfers.json
   def create
-    # pagarme_transaction = PagarMe::Transaction.new(tr)
-
     @transfer = Transfer.new(transfer_params)
 
-    respond_to do |format|
-      if @transfer.save
-        format.html { redirect_to @transfer, notice: 'Transfer was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
-  end
+    pagarme_transaction = PagarMe::Transaction.new(params[:card_hash])
+    pagarme_transaction.amount = @transfer.amount
 
-  # PATCH/PUT /transfers/1
-  # PATCH/PUT /transfers/1.json
-  def update
-    respond_to do |format|
-      if @transfer.update(transfer_params)
-        format.html { redirect_to @transfer, notice: 'Transfer was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+    begin
+      pagarme_transaction.charge
+    rescue PagarMe::PagarMeError => e
+      puts e.inspect
+      redirect_to new_transfer_url, notice: "Erro: #{e.message}"
+      return
+    end
+
+    @transfer.transaction_id = pagarme_transaction.id
+    @transfer.status = pagarme_transaction.status.to_s
+
+    if @transfer.save
+      redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
+    else
+      render action: 'new'
     end
   end
 
