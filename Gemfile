@@ -28,3 +28,8 @@ end
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
 end
+
+group :deploy do
+  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano-rails', '~> 1.0.0'
+end
