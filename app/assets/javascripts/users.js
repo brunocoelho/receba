@@ -1,4 +1,4 @@
-$(document).ready(function (){
-    $(".transferInfoSubmit").click(function (){
+$(document).ready(function () {
+    $(".transferInfoSubmit").click(function () {
     });
-})
+});
