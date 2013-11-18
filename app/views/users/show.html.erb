@@ -2,16 +2,10 @@
   <%= image_tag show_user_avatar(@user), class: "img-square" %>
   <h4 class="lead text-center"><%= link_to @user.name, user_path(@user) %></h4>
 
-  <p class="text-center">@<%= @user.username %></p>
-  <p class="text-center"><%= @user.location %></p>
+  <p class="text-left">@<%= @user.username %></p>
+  <p class="text-left"><%= @user.location %></p>
 
-  <div class="text-center">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTransferInfo">Enviar dinheiro</button>
-  </div>
-
-  <% if current_user == @user %>
-    <%= link_to "Editar perfil", edit_user_path(@user) %>
-  <% end %>
+  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalTransferInfo">Enviar dinheiro</button>
 
   <%= render "transfers/pagarme_script_tag" %>
 
