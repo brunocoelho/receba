@@ -5,13 +5,14 @@
  */
 
 .bs-footer {
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 100px;
   color: #777;
   text-align: center;
   border-top: 1px solid #e5e5e5;
 }
+
 .footer-links {
   margin: 10px 0;
   padding-left: 0;
@@ -42,7 +43,8 @@
  */
 
  /* Masthead (headings and download button) */
- .bs-masthead {
+
+.bs-masthead {
   position: relative;
   padding: 30px 15px;
   text-align: center;
@@ -91,8 +93,8 @@
 @media screen and (min-width: 768px) {
   .bs-masthead {
     text-align: left;
-    padding-top:    60px;
-    padding-bottom: 140px;
+    padding-top:    30px;
+    padding-bottom: 80px;
   }
 
   .bs-masthead h1 {
