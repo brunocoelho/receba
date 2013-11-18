@@ -1,4 +1,4 @@
-# [Receba.la](http://receba.la)
+# [Receba.la](http://www.receba.la)
 
 Receba pagamentos online sem dor de cabeça
 
