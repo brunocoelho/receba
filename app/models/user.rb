@@ -48,9 +48,8 @@ class User < ActiveRecord::Base
 
 private
   def set_username
-    if self.username.blank?
-      self.username = self.name.gsub(' ', '-').downcase
-      self.save
-    end
+    self.username = self.name.gsub(' ', '-').downcase if self.username.blank?
+    self.username = self.username.gsub('.', '-')
+    self.save
   end
 end
