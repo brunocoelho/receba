@@ -7,4 +7,5 @@
 .env
 config/database.yml
 .ruby-version
+*.DS_Store
 
