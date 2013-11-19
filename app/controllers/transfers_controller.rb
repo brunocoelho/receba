@@ -14,11 +14,6 @@ class TransfersController < ApplicationController
   def show
   end
 
-  # GET /transfers/new
-  def new
-    @transfer = Transfer.new
-  end
-
   # POST /transfers
   # POST /transfers.json
   def create
@@ -31,7 +26,7 @@ class TransfersController < ApplicationController
       pagarme_transaction.charge
     rescue PagarMe::PagarMeError => e
       puts e.inspect
-      redirect_to new_transfer_url, notice: "Erro: #{e.message}"
+      redirect_to :back, notice: "Erro: #{e.message}"
       return
     end
 
@@ -41,7 +36,8 @@ class TransfersController < ApplicationController
     if @transfer.save
       redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
     else
-      render action: 'new'
+      redirect_to @transfer, notice: "Erro: #{e.message}"
+
     end
   end
 
