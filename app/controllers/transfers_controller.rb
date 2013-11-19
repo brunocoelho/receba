@@ -49,6 +49,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def transfer_params
-    params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :card_hash)
+    params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :message, :card_hash)
   end
 end

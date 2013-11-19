@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 20131106021018) do
 
   create_table "transfers", force: true do |t|
     t.integer  "user_id"
-    t.integer  "receiver_id",                            null: false
+    t.integer  "receiver_id",                                         null: false
     t.decimal  "amount",         precision: 8, scale: 2
-    t.string   "email",                                  null: false
-    t.string   "name",                                   null: false
+    t.string   "email",                                               null: false
+    t.string   "name",                                                null: false
+    t.text     "message",                                default: "", null: false
     t.boolean  "success"
     t.integer  "transaction_id"
-    t.string   "ip_address",                             null: false
+    t.string   "ip_address",                                          null: false
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"

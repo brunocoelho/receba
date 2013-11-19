@@ -6,6 +6,7 @@ class CreateTransfers < ActiveRecord::Migration
       t.decimal :amount, precision: 8, scale: 2
       t.string :email, null: false
       t.string :name, null: false
+      t.text :message, default: "", null: false
       t.boolean :success
       t.integer :transaction_id
 
