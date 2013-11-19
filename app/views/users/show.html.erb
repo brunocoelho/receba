@@ -9,7 +9,7 @@
 
   <%= render "transfers/pagarme_script_tag" %>
 
-  <%= form_for(@transfer, role: "form") do |f| %>
+  <%= form_for(@transfer, role: "form", html: { class: "form-horizontal" }) do |f| %>
     <% if @transfer.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@transfer.errors.count, "error") %> impossibilitaram a transferência:</h2>
@@ -21,8 +21,8 @@
       </div>
     <% end %>
 
-  <%= render "transfers/modal_transfer_info", f: f, user: @user, transfer: @transfer %>
-  <%= render "transfers/modal_card_info", f: f, user: @user, transfer: @transfer %>
+    <%= render "transfers/modal_transfer_info", f: f, user: @user, transfer: @transfer %>
+    <%= render "transfers/modal_card_info", f: f, user: @user, transfer: @transfer %>
 
   <% end %>
 </div>

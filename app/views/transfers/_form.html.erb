@@ -1,6 +1,6 @@
 <%= render "pagarme_script_tag" %>
 
-<%= form_for(@transfer, role: "form") do |f| %>
+<%= form_for(@transfer, role: "form", class: "form-horizontal") do |f| %>
   <% if @transfer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@transfer.errors.count, "error") %> impossibilitaram a transferência:</h2>
