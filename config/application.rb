@@ -21,6 +21,6 @@ module Receba
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = "pt-BR"
 
-    PagarMe.api_key = "ak_test_HGCc2Y6yL86nbdnowOfI4JERgXOdJN"
+    PagarMe.api_key = ENV['PAGAR_ME_API_KEY']
   end
 end

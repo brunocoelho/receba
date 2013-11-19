@@ -1,6 +1,6 @@
 <script>
   $(document).ready(function () {
-      PagarMe.encryption_key = "ek_test_xDlzfPDuDYkEUCLbgovvkBsAzEyIhQ";
+      PagarMe.encryption_key = "<%= ENV['PAGAR_ME_ENCRYPTION_KEY'] %>";
 
       var form = $("#new_transfer");
 
@@ -15,8 +15,8 @@
 
           $("#new_transfer #card_number").css('border', '3px solid green');
           $("#new_transfer #card_holder_name").css('border', '3px solid green');
-          $("#new_transfer #card_expiracy_month").css('border', '3px solid green');
-          $("#new_transfer #card_expiracy_year").css('border', '3px solid green');
+          $("#new_transfer #card_expiration_month").css('border', '3px solid green');
+          $("#new_transfer #card_expiration_year").css('border', '3px solid green');
           $("#new_transfer #card_cvv").css('border', '3px solid green');
 
           if (hasErrors) {
@@ -29,7 +29,6 @@
           }
 
           creditCard.generateHash(function(cardHash) {
-              console.log("GOT CARD HASH");
               form.append($('<input type="hidden" name="card_hash"/>').val(cardHash));
               PagarMe.removeCardFieldsFromForm(form);
               form.get(0).submit();
