@@ -1,5 +1,5 @@
 <div class="row col-sm-6 col-md-3 user-card">
-  <%= image_tag show_user_avatar(@user), class: "img-square" %>
+  <%= image_tag show_user_avatar(@user), class: "img-square", alt: @user.name %>
   <h4 class="lead text-center"><%= link_to @user.name, user_path(@user) %></h4>
 
   <p class="text-left">@<%= @user.username %></p>
