@@ -8,33 +8,38 @@
 
       <div class="modal-body">
         <div class="form-group">
-          <%= label_tag :card_number, "Número do cartão" %>
-          <br/>
-          <%= text_field_tag :card_number, nil, { id: "card_number" } %>
+          <div class="col-lg-6">
+            <%= label_tag :card_number, "Número do cartão" %>
+            <%= text_field_tag :card_number, nil, { id: "card_number", class: 'form-control' } %>
+          </div>
         </div>
 
         <div class="form-group">
-          <%= label_tag :card_holder_name, "Nome (como escrito no cartão)" %>
-          <br/>
-          <%= text_field_tag :card_holder_name, nil, { id: "card_holder_name" } %>
+          <div class="col-lg-6">
+            <%= label_tag :card_holder_name, "Nome (como escrito no cartão)" %>
+            <%= text_field_tag :card_holder_name, nil, { id: "card_holder_name", class: 'form-control' } %>
+          </div>
         </div>
 
         <div class="form-group">
-          <%= label_tag :card_expiration_month, "Mês de expiração" %>
-          <br/>
-          <%= text_field_tag :card_expiration_month, nil, { id: "card_expiration_month" } %>
+          <div class="col-lg-6">
+            <%= label_tag :card_expiration_month, "Mês de expiração" %>
+            <%= number_field_tag :card_expiration_month, nil, { id: "card_expiration_month", class: 'form-control', in: 1..12 } %>
+          </div>
         </div>
 
         <div class="form-group">
-          <%= label_tag :card_expiration_year, "Ano de expiração" %>
-          <br/>
-          <%= text_field_tag :card_expiration_year, nil, { id: "card_expiration_year" } %>
+          <div class="col-lg-6">
+            <%= label_tag :card_expiration_year, "Ano de expiração" %>
+            <%= number_field_tag :card_expiration_year, nil, { id: "card_expiration_year", class: 'form-control' } %>
+          </div>
         </div>
 
         <div class="form-group">
-          <%= label_tag :card_cvv, "Código de segurança" %>
-          <br />
-          <%= text_field_tag :card_cvv, nil, { id: "card_cvv" } %>
+          <div class="col-lg-6">
+            <%= label_tag :card_cvv, "Código de segurança" %>
+            <%= text_field_tag :card_cvv, nil, { id: "card_cvv", class: 'form-control' } %>
+          </div>
         </div>
       </div>
 
