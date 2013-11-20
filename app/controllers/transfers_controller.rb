@@ -28,9 +28,6 @@ class TransfersController < ApplicationController
       return
     end
 
-    p '###########################'
-    p 'rolou a transferencia!'
-
     @transfer.transaction_id = pagarme_transaction.id
     @transfer.status = pagarme_transaction.status.to_s
 
