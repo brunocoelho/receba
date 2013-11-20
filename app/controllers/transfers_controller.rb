@@ -3,19 +3,17 @@
 class TransfersController < ApplicationController
   before_action :find_transfer, only: [:show, :edit, :update]
 
-  # GET /transfers
-  # GET /transfers.json
   def index
     @transfers = Transfer.all
   end
 
-  # GET /transfers/1
-  # GET /transfers/1.json
   def show
   end
 
-  # POST /transfers
-  # POST /transfers.json
+  def new
+    @transfer = Transfer.new
+  end
+
   def create
     @transfer = Transfer.new(transfer_params)
 
@@ -29,6 +27,9 @@ class TransfersController < ApplicationController
       redirect_to :back, notice: "Erro: #{e.message}"
       return
     end
+
+    p '###########################'
+    p 'rolou a transferencia!'
 
     @transfer.transaction_id = pagarme_transaction.id
     @transfer.status = pagarme_transaction.status.to_s
