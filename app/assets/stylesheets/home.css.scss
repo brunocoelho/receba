@@ -44,8 +44,15 @@ ul.menu li {
   display: inline;
 }
 
-.footer {
-  margin-top: 0px;
+.bs-header, .bs-masthead, .receba-main {
+  min-height: 500px;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
 }
 
 .btn {
