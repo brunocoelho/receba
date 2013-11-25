@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20131106021018) do
     t.text     "message",                                default: "", null: false
     t.boolean  "success"
     t.integer  "transaction_id"
-    t.string   "ip_address",                                          null: false
+    t.string   "ip_address",                             default: "", null: false
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"

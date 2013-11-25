@@ -10,7 +10,7 @@ class CreateTransfers < ActiveRecord::Migration
       t.boolean :success
       t.integer :transaction_id
 
-      t.string :ip_address, null: false
+      t.string :ip_address, default: "", null: false
       t.string :location
 
       t.timestamps

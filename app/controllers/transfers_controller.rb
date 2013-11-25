@@ -16,26 +16,29 @@ class TransfersController < ApplicationController
 
   def create
     @transfer = Transfer.new(transfer_params)
+    pagarme_transaction = PagarMe::Transaction.new({card_hash: params[:card_hash]})
 
-    pagarme_transaction = PagarMe::Transaction.new(params[:card_hash])
-    pagarme_transaction.amount = @transfer.amount
+    pagarme_transaction.amount = @transfer.amount.to_s
 
     begin
       pagarme_transaction.charge
+
+      if pagarme_transaction.status = 'paid'
+        @transfer.transaction_id = pagarme_transaction.id
+
+        if @transfer.save
+          redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
+        else
+          puts @transfer.errors.inspect
+          redirect_to @transfer, notice: "Erro: #{e.message}"
+        end
+      end
+
     rescue PagarMe::PagarMeError => e
       puts e.inspect
-      redirect_to :back, notice: "Erro: #{e.message}"
-      return
-    end
-
-    @transfer.transaction_id = pagarme_transaction.id
-    @transfer.status = pagarme_transaction.status.to_s
-
-    if @transfer.save
-      redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
-    else
+      puts 'ERROR'
       redirect_to @transfer, notice: "Erro: #{e.message}"
-
+      return
     end
   end
 
