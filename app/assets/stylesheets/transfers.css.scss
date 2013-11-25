@@ -1,3 +1,18 @@
 #modalTransferInfo, #modalCardInfo {
   color: #428bca;
 }
+
+#new_transfer {
+  .form-card {
+    width: 75%;
+    float: left;
+  }
+}
+
+.card-success {
+  background: image-url('icos/success-ico.png') no-repeat 0 0 #005aa7;
+}
+
+.card-error {
+  background: image-url('icos/error-ico.png') no-repeat 0 0 #005aa7;
+}
