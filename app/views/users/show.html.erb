@@ -7,8 +7,6 @@
 
   <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalTransferInfo">Enviar dinheiro</button>
 
-  <%= render "transfers/pagarme_script_tag" %>
-
   <%= form_for(@transfer, role: "form", html: { class: "form-horizontal col-md-8" }) do |f| %>
     <% if @transfer.errors.any? %>
       <div id="error_explanation">

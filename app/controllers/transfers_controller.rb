@@ -1,5 +1,3 @@
-# require "pagarme"
-
 class TransfersController < ApplicationController
   before_action :find_transfer, only: [:show, :edit, :update]
 
@@ -16,29 +14,11 @@ class TransfersController < ApplicationController
 
   def create
     @transfer = Transfer.new(transfer_params)
-    pagarme_transaction = PagarMe::Transaction.new({card_hash: params[:card_hash]})
-
-    pagarme_transaction.amount = @transfer.amount.to_s
-
-    begin
-      pagarme_transaction.charge
-
-      if pagarme_transaction.status = 'paid'
-        @transfer.transaction_id = pagarme_transaction.id
-
-        if @transfer.save
-          redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
-        else
-          puts @transfer.errors.inspect
-          redirect_to @transfer, notice: "Erro: #{e.message}"
-        end
-      end
-
-    rescue PagarMe::PagarMeError => e
-      puts e.inspect
-      puts 'ERROR'
+    if @transfer.save
+      redirect_to @transfer, notice: 'Pagamento realizado com sucesso!'
+    else
+      puts @transfer.errors.inspect
       redirect_to @transfer, notice: "Erro: #{e.message}"
-      return
     end
   end
 
@@ -50,6 +30,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def transfer_params
-    params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :message, :card_hash)
+    params.require(:transfer).permit(:user_id, :receiver_id, :amount, :email, :name, :message)
   end
 end
